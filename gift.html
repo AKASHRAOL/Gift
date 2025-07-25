@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Birthday Celebration</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap');
+
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body, html {
+    margin: 0; padding: 0;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+    background: #fff8f0;
+    color: #4e342e;
+  }
+
+  /* SECTION: Intro */
+  .intro {
+    height: 100vh;
+    background: linear-gradient(135deg, #f9d29d, #f77f00);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .intro h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    margin: 0 0 10px;
+    text-shadow: 2px 2px 5px #b35400;
+  }
+  .intro p {
+    font-size: 1.5rem;
+    max-width: 600px;
+    font-weight: 600;
+  }
+  .intro .scroll-down {
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #662e1c;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    user-select: none;
+  }
+  @keyframes bounce {
+    0%, 100% {transform: translateY(0);}
+    50% {transform: translateY(10px);}
+  }
+
+  /* SECTION: Album */
+  .album {
+    background: #fff3e0;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .album h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: #d05c0e;
+  }
+  .album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .album-grid img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .album-grid img:hover {
+    transform: scale(1.05);
+  }
+
+  /* SECTION: Music */
+  .music {
+    background: #fff8e1;
+    padding: 60px 20px;
+    max-width: 700px;
+    margin: 0 auto 80px;
+    text-align: center;
+  }
+  .music h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: #b36100;
+  }
+  .music audio {
+    width: 100%;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #a0520d;
+    font-weight: 600;
+    background: #ffe6b3;
+  }
+
+  /* Responsive text */
+  @media (max-width: 600px) {
+    .intro h1 {
+      font-size: 3rem;
+    }
+    .intro p {
+      font-size: 1.2rem;
+    }
+    .album h2, .music h2 {
+      font-size: 2rem;
+    }
+  }
+
+  /* Image Modal */
+  #modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+  }
+  #modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #fff;
+  }
+  #modal .close-btn {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+  <section class="intro" id="intro">
+    <h1>🎉 Happy Birthday! 🎉</h1>
+    <p>Wishing you a day filled with love, laughter, and unforgettable memories. Scroll down to see your special album and enjoy some music!</p>
+    <div class="scroll-down" onclick="document.querySelector('#album').scrollIntoView({behavior: 'smooth'})" tabindex="0" role="button" aria-label="Scroll down to album section">▼ Scroll Down ▼</div>
+  </section>
+
+  <section class="album" id="album" aria-label="Birthday photo album">
+    <h2>Birthday Album</h2>
+    <div class="album-grid">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Birthday cake with candles" tabindex="0" />
+      <img src="https://images.unsplash.com/photo-1520962919273-50e6e3a5a13c?auto=format&fit=crop&w=400&q=80" alt="Colorful balloons" tabindex="0" />
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80" alt="Friends celebrating" tabindex="0" />
+      <img src="https://images.unsplash.com/photo-1532634726-8b9fb998e1a1?auto=format&fit=crop&w=400&q=80" alt="Birthday presents" tabindex="0" />
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Party decorations" tabindex="0" />
+      <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=400&q=80" alt="Happy smiling kid" tabindex="0" />
+    </div>
+  </section>
+
+  <section class="music" id="music" aria-label="Birthday songs music player">
+    <h2>Birthday Songs</h2>
+
+    <!-- Replace src with your uploaded song files -->
+    <audio controls>
+      <source src="song1.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="song2.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="song3.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+  </section>
+
+  <footer>
+    Made with ❤️ to brighten your special day.
+  </footer>
+
+  <!-- Image Modal -->
+  <div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-image" tabindex="-1">
+    <span class="close-btn" aria-label="Close image modal" role="button" tabindex="0">&times;</span>
+    <img id="modal-image" src="" alt="Expanded birthday album image" />
+  </div>
+
+  <script>
+    // Modal image viewer
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-image');
+    const closeBtn = modal.querySelector('.close-btn');
+    const albumImages = document.querySelectorAll('.album-grid img');
+
+    albumImages.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modal.focus();
+      });
+      img.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          img.click();
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modalImg.src = '';
+    });
+    closeBtn.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        closeBtn.click();
+      }
+    });
+
+    // Close modal on outside click or ESC
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        modalImg.src = '';
+      }
+    });
+    window.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape
