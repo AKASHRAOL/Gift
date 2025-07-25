@@ -1,11 +1,154 @@
 <!DOCTYPE html>
-<html>
-<head><title>Test Birthday Page</title></head>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Birthday Celebration</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap');
+
+  body, html {
+    margin: 0; padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #fff8f0;
+    color: #4e342e;
+    scroll-behavior: smooth;
+  }
+
+  /* Intro Section */
+  .intro {
+    height: 100vh;
+    background: linear-gradient(135deg, #f9d29d, #f77f00);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  .intro h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    margin: 0 0 10px;
+    text-shadow: 2px 2px 5px #b35400;
+  }
+  .intro p {
+    font-size: 1.5rem;
+    max-width: 600px;
+    font-weight: 600;
+  }
+  .scroll-down {
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #662e1c;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+  }
+  @keyframes bounce {
+    0%, 100% {transform: translateY(0);}
+    50% {transform: translateY(10px);}
+  }
+
+  /* Album Section */
+  .album {
+    background: #fff3e0;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .album h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: #d05c0e;
+  }
+  .album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .album-grid img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .album-grid img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Music Section */
+  .music {
+    background: #fff8e1;
+    padding: 60px 20px;
+    max-width: 700px;
+    margin: 0 auto 80px;
+    text-align: center;
+  }
+  .music h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: #b36100;
+  }
+  .music audio {
+    width: 100%;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  /* Responsive Text */
+  @media (max-width: 600px) {
+    .intro h1 {
+      font-size: 3rem;
+    }
+    .intro p {
+      font-size: 1.2rem;
+    }
+    .album h2, .music h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
+</head>
 <body>
-  <h1>Happy Birthday!</h1>
-  <img src="https://blog.routinehub.co/content/images/2023/02/openAI-chat-gpt-1.jpg" alt="Test Image" />
-  <audio controls>
-    <source src="song1.mp3" type="audio/mpeg">
-  </audio>
+
+  <section class="intro" id="intro">
+    <h1>🎉 Happy Birthday! 🎉</h1>
+    <p>Wishing you a day filled with love, laughter, and unforgettable memories. Scroll down to see your special album and enjoy some music!</p>
+    <div class="scroll-down" onclick="document.querySelector('#album').scrollIntoView({behavior: 'smooth'})" tabindex="0" role="button" aria-label="Scroll down to album section">▼ Scroll Down ▼</div>
+  </section>
+
+  <section class="album" id="album" aria-label="Birthday photo album">
+    <h2>Birthday Album</h2>
+    <div class="album-grid">
+      <!-- Replace these with your own images or keep for test -->
+      <img src="https://via.placeholder.com/400x300?text=Image+1" alt="Birthday Image 1" />
+      <img src="https://via.placeholder.com/400x300?text=Image+2" alt="Birthday Image 2" />
+      <img src="https://via.placeholder.com/400x300?text=Image+3" alt="Birthday Image 3" />
+      <img src="https://via.placeholder.com/400x300?text=Image+4" alt="Birthday Image 4" />
+      <img src="https://via.placeholder.com/400x300?text=Image+5" alt="Birthday Image 5" />
+      <img src="https://via.placeholder.com/400x300?text=Image+6" alt="Birthday Image 6" />
+    </div>
+  </section>
+
+  <section class="music" id="music" aria-label="Birthday songs music player">
+    <h2>Birthday Songs</h2>
+
+    <!-- Replace src with your uploaded song files -->
+    <audio controls>
+      <source src="song1.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="song2.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+  </section>
+
 </body>
 </html>
